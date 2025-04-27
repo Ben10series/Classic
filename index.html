@@ -126,6 +126,46 @@
           "La verdad", "Un nuevo héroe", "Kevin regresa", "Gwen 10", "Gladiadores", "Los Luchadores Galácticos", "El campamento del terror",
           "La mejor arma", "La suerte regresa", "El nuevo hotel", "El fantasma anda suelto", "Dr. Animo y el rayo mutante", "Los malos están de regreso"
         ]
+      },
+      "3": {
+        plataforma: "pixeldrain",
+        videos: [
+          "https://pixeldrain.com/u/mUHcoR6A", "https://pixeldrain.com/u/JY7rcnwP",
+          "https://pixeldrain.com/u/ekYzcRy8", "https://pixeldrain.com/u/2AjSxL98",
+          "https://pixeldrain.com/u/3AUUhZsa", "https://pixeldrain.com/u/2BFmwTko",
+          "https://pixeldrain.com/u/qzrJ6Zpt", "https://pixeldrain.com/u/FVjadKgL",
+          "https://pixeldrain.com/u/vwAPa4Mo", "https://pixeldrain.com/u/4DKgo7vG",
+          "https://pixeldrain.com/u/xsfGDgKz", "https://pixeldrain.com/u/Thq7MypP", "https://pixeldrain.com/u/5zaf2EDC"
+        ],
+        nombres: [
+          "Ben 10.000", "Locura a la medianoche", "Cambio de cara", "Feliz Navidad", "Benlobo", "El juego terminó", "Super alianza de héroes alienígenas", "La momia mutante",
+          "Los anormales", "El monstruo del clima", "El regreso (Parte 1)", "Miedo a la oscuridad (Parte 2)", "La visitante"
+        ]
+      },
+      "4": {
+        plataforma: "pixeldrain",
+        videos: [
+          "https://pixeldrain.com/u/5HN84ScX", "https://pixeldrain.com/u/vBLeryb6",
+          "https://pixeldrain.com/u/Q8A8Ph3b", "https://pixeldrain.com/u/W6berPT9",
+          "https://pixeldrain.com/u/UC3wgtAN", "https://pixeldrain.com/u/y7MepkS7",
+          "https://pixeldrain.com/u/p5iFJLDM", "https://pixeldrain.com/u/QbwKy3GF",
+          "https://pixeldrain.com/u/3hTepKM9", 
+          "https://pixeldrain.com/u/e36fXzg8", 
+        ],
+        nombres: [
+          "Un día perfecto", "Es hora de dividirnos", "No tomes el agua", "La gran boda alienígena", 
+          "Un viaje en carretera", "Listo para luchar", "Ken 10", "Ben 10 contra Los 10 Negativos (1)", 
+          "Ben 10 contra Los 10 Negativos (2)", "De regreso a casa"
+        ]
+      },
+      "Peliculas": {
+        plataforma: "pixeldrain",
+        videos: [
+          "https://pixeldrain.com/u/9U2fUG6h", "https://pixeldrain.com/u/xxxxxxxx", "https://pixeldrain.com/u/xxxxxxxx"
+        ],
+        nombres: [
+          "Ben 10: El Secreto del Omnitrix"
+        ]
       }
     };
 
@@ -153,7 +193,7 @@
       Object.keys(temporadas).forEach(temp => {
         const option = document.createElement("option");
         option.value = temp;
-        option.textContent = `Temporada ${temp}`;
+        option.textContent = temp === "Peliculas" ? "Peliculas" : `Temporada ${temp}`;
         temporadaSelector.appendChild(option);
       });
     }
@@ -203,7 +243,7 @@
     }
 
     function cargarCapitulo(inicioEn = 0) {
-      mostrarLoader(); // 👈 AGREGADO
+      mostrarLoader(); 
 
       const temporada = temporadas[temporadaActual];
       const videoID = temporada.videos[capActual - 1];
@@ -216,8 +256,9 @@
         url = `https://pixeldrain.com/api/file/${videoID.split("/").pop()}?stream`;
         if (inicioEn > 0) url += `#t=${Math.floor(inicioEn)}s`;
 
-        if (!advertenciaPixeldrainMostrada) {
-          alert("Atención: A partir de esta temporada, no se puede guardar el progreso");
+        // Mostrar advertencia solo para la temporada 2
+        if (temporadaActual === "2" && !advertenciaPixeldrainMostrada) {
+          alert("ATENCIÓN: A partir de esta temporada, no se puede guardar el progreso, solo el capítulo.");
           advertenciaPixeldrainMostrada = true;
         }
       }
