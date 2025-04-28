@@ -54,12 +54,12 @@ button:hover, select:hover {
 }
 
 /* Botones de Series */
+/* Botones de Series */
 #series-buttons {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column; /* Cambiado para PC */
+  align-items: flex-start;
   gap: 15px;
-  flex-wrap: wrap;
   position: absolute;
   top: 10px;
   left: 10px;
@@ -67,18 +67,28 @@ button:hover, select:hover {
 
 .serie {
   display: flex;
+  flex-direction: row; /* Logo + texto en línea */
   align-items: center;
   gap: 8px;
 }
 
 .serie img {
-  max-width: 100px;
+  max-width: 90px;
   height: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  filter: drop-shadow(0 0 5px #0f0); /* Glow verde */
+}
+
+/* Animación cuando pasas el mouse */
+.serie img:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 10px #0f0);
 }
 
 .proximamente {
   color: white;
-  font-size: 14px;
+  font-size: 16px;
+  white-space: nowrap; /* Para que no se corte */
 }
 
 /* SOLO PARA CELULAR */
@@ -94,7 +104,7 @@ button:hover, select:hover {
   }
 
   .serie img {
-    max-width: 80px;
+    max-width: 60px; /* Aún más pequeño que antes */
   }
 
   .proximamente {
