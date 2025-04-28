@@ -94,21 +94,6 @@ button:hover, select:hover {
 /* SOLO PARA CELULAR */
 @media (max-width: 768px) {
   #series-buttons {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .serie {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .serie img {
-    max-width: 30px; /* Aún más pequeño que antes */
-  }
-
-  .proximamente {
-    font-size: 12px;
-    margin-top: 5px;
+    display: none;
   }
 }
