@@ -1,4 +1,3 @@
-
 body {
   font-family: sans-serif;
   background: #121212;
@@ -56,42 +55,50 @@ button:hover, select:hover {
 
 /* Botones de Series */
 #series-buttons {
-  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  position: absolute;
   top: 10px;
   left: 10px;
+}
+
+.serie {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  z-index: 10000;
+  align-items: center;
+  gap: 8px;
 }
 
-#series-buttons a img {
-  width: 60px;
+.serie img {
+  max-width: 100px;
   height: auto;
-  border-radius: 8px;
-  background: #1e1e1e;
-  padding: 5px;
-  box-shadow: 0 0 10px #0f0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#series-buttons a img:hover {
-  transform: scale(1.1);
+.proximamente {
+  color: white;
+  font-size: 14px;
 }
 
-/* Botón activo */
-#series-buttons a.active img {
-  border: 2px solid #00ff00;
-  box-shadow: 0 0 20px #00ff00;
-}
-
-/* Responsive para pantallas chicas */
-@media (max-width: 600px) {
+/* SOLO PARA CELULAR */
+@media (max-width: 768px) {
   #series-buttons {
-    top: auto;
-    bottom: 10px;
-    left: auto;
-    right: 10px;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .serie {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .serie img {
+    max-width: 80px;
+  }
+
+  .proximamente {
+    font-size: 12px;
+    margin-top: 5px;
   }
 }
