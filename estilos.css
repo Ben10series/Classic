@@ -1,7 +1,7 @@
 body {
-  font-family: 'Orbitron', sans-serif;
-  background: #0a0a0a;
-  color: #d0ffd0;
+  font-family: sans-serif;
+  background: #121212;
+  color: #f0f0f0;
   text-align: center;
   padding: 20px;
 }
@@ -20,7 +20,7 @@ body {
   aspect-ratio: 16/9;
   height: auto;
   border-radius: 10px;
-  box-shadow: 0 0 25px #00ff00;
+  box-shadow: 0 0 20px #0f0;
   display: block;
   margin: 20px auto;
 }
@@ -29,17 +29,16 @@ button, select {
   margin: 10px;
   padding: 15px 30px;
   background: #1e1e1e;
-  color: #00ff00;
-  border: 2px solid #00ff00;
-  border-radius: 8px;
+  color: white;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 button:hover, select:hover {
-  background: #111;
+  background: #333;
   transform: scale(1.05);
-  box-shadow: 0 0 15px #00ff00;
 }
 
 .selector-container {
@@ -55,18 +54,47 @@ button:hover, select:hover {
   margin-top: 20px;
 }
 
-#loader p {
-  color: #00ff00;
+/* Botones de Series */
+/* Botones de Series */
+#series-buttons {
+  display: flex;
+  flex-direction: column; /* Cambiado para PC */
+  align-items: flex-start;
+  gap: 15px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
 }
 
-/* Responsive para celular */
-@media (max-width: 768px) {
-  .selector-container {
-    flex-direction: column;
-  }
+.serie {
+  display: flex;
+  flex-direction: row; /* Logo + texto en línea */
+  align-items: center;
+  gap: 8px;
+}
 
-  button, select {
-    width: 80%;
-    font-size: 16px;
+.serie img {
+  max-width: 90px;
+  height: auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  filter: drop-shadow(0 0 5px #0f0); /* Glow verde */
+}
+
+/* Animación cuando pasas el mouse */
+.serie img:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 10px #0f0);
+}
+
+.proximamente {
+  color: white;
+  font-size: 16px;
+  white-space: nowrap; /* Para que no se corte */
+}
+
+/* SOLO PARA CELULAR */
+@media (max-width: 768px) {
+  #series-buttons {
+    display: none;
   }
 }
