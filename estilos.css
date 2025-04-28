@@ -1,3 +1,4 @@
+
 body {
   font-family: sans-serif;
   background: #121212;
@@ -13,9 +14,10 @@ body {
   display: block;
 }
 
-video {
+.video, iframe.video {
   width: 100%;
   max-width: 960px;
+  aspect-ratio: 16/9;
   height: auto;
   border-radius: 10px;
   box-shadow: 0 0 20px #0f0;
@@ -25,13 +27,13 @@ video {
 
 button, select {
   margin: 10px;
-  padding: 10px 20px;
+  padding: 15px 30px;
   background: #1e1e1e;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 button:hover, select:hover {
@@ -39,6 +41,57 @@ button:hover, select:hover {
   transform: scale(1.05);
 }
 
+.selector-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
 .botones {
-  margin-top: 10px;
+  margin-top: 20px;
+}
+
+/* Botones de Series */
+#series-buttons {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 10000;
+}
+
+#series-buttons a img {
+  width: 60px;
+  height: auto;
+  border-radius: 8px;
+  background: #1e1e1e;
+  padding: 5px;
+  box-shadow: 0 0 10px #0f0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#series-buttons a img:hover {
+  transform: scale(1.1);
+}
+
+/* Botón activo */
+#series-buttons a.active img {
+  border: 2px solid #00ff00;
+  box-shadow: 0 0 20px #00ff00;
+}
+
+/* Responsive para pantallas chicas */
+@media (max-width: 600px) {
+  #series-buttons {
+    top: auto;
+    bottom: 10px;
+    left: auto;
+    right: 10px;
+    flex-direction: row;
+  }
 }
